@@ -1,0 +1,140 @@
+:root {
+  --color-blanco: #fff;
+  --color-azul: #385D9A;
+  --color-rojo: #e5383b;
+  --color-negro: #212529;
+  --fuente: 'Roboto', sans-serif;
+}
+
+/*SUELO USAR NORMALIZE*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "imagen opciones" "producto precio" "agregar agregar";
+  margin: 10px;
+  background: var(--fondo-blanco);
+  color: var(--color-negro);
+  font: 16px var(--fuente);
+}
+
+.image-container {
+  grid-area: imagen;
+}
+
+.options {
+  grid-area: opciones;
+}
+
+.product {
+  grid-area: producto;
+}
+
+.price {
+  grid-area: precio;
+}
+
+.btn-add {
+  grid-area: agregar;
+}
+
+.image-container {
+  height: 26.875rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.option__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin: 0.3125rem 0;
+}
+
+.option__radio {
+  margin: 0 0.3125rem;
+}
+
+.product {
+  margin-top: 0.3125rem;
+}
+
+.product__tittle {
+  margin: 0.3125rem;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price__new {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.price__old {
+  color: var(--color-rojo);
+  text-align: right;
+  text-decoration: line-through;
+}
+
+.btn-add {
+  width: 11.875rem;
+  height: 2.5rem;
+  margin-left: 86%;
+  background: var(--color-azul);
+  color: var(--color-blanco);
+  border-radius: 0.625rem;
+  border-style: none;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.icon-button {
+  margin: 0.3125rem 0.3125rem 0 0;
+}
+
+@media screen and (max-width:48rem) {
+  body {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: "imagen imagen" "opciones opciones" "producto producto" "precio agregar";
+  }
+  .option {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    width: 200%;
+  }
+  .option__item {
+    width: 30%;
+    margin: 0.625rem 0;
+  }
+  .price {
+    margin-top: 0.3125rem;
+    align-items: flex-start;
+  }
+  .btn-add {
+    margin: auto;
+  }
+}
